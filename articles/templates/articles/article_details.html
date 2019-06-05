@@ -7,6 +7,18 @@
 			<p>{{article.body}}</p>
 			<p>{{article.date}}</p>
 			<p>{{article.author}}</p>
+			<p><a href="{{article.pdf.url}}" class="btn btn-primary btn-sm">Download {{article.pdf}}</a></p>
 		</div>
 	</div>
+	{% if user.is_authenticated %}
+		{% if request.user == article.author %}
+		<div class="delete">
+			<form class="delete_form" action="{% url 'articles:delete' article.pk %}" method="post">
+				{% csrf_token %}
+				<input type="submit" value="Delete">
+			</form>
+		</div>
+		{% endif %}
+	{% endif %}
+
 {% endblock %}

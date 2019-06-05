@@ -3,6 +3,7 @@ from .models import Articles
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from . import forms
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 
 def article_list(request):
@@ -25,3 +26,11 @@ def create_article(request):
 	else:
 			form = forms.CreateArticle()
 	return render(request,'articles/create_article.html',{'form':form})
+
+@login_required(login_url="/accounts/login/")
+def delete_article(request,pk):
+	if request.method =='POST':
+		article = Articles.objects.get(pk = pk)
+		article.delete()
+	return redirect('articles:list')
+

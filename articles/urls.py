@@ -22,5 +22,6 @@ app_name= 'articles'
 urlpatterns = [
     path('',views.article_list,name="list"),
     path('create/',views.create_article,name="create"),
+    path('delete/<int:pk>/',views.delete_article,name="delete"),
     path('<slug>/',views.article_details,name="detail"),
 ]
