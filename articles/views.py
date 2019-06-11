@@ -34,3 +34,15 @@ def delete_article(request,pk):
 		article.delete()
 	return redirect('articles:list')
 
+@login_required(login_url="/accounts/login/")
+def update_article(request,slug):
+	instance = Articles.objects.get(slug=slug)
+	if request.method == 'POST':
+		form = forms.UpdateArticle(request.POST, request.FILES, instance=instance)
+		if form.is_valid():
+			form.save()
+			instance2 = Articles.objects.get(slug=slug)
+			return render(request, 'articles/article_details.html', {'article':instance2 })
+	else:
+		form = forms.UpdateArticle(instance=instance)
+	return render(request, 'articles/article_update.html', {'form':form , 'article':instance})

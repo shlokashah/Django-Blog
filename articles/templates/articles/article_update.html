@@ -1,0 +1,11 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+	<div class="Update-Article-Blink"> Scroll down for the original Article! </div>
+	<form class="Update" action="{% url 'articles:update' slug=article.slug %}" method="post" enctype="multipart/form-data">
+         {% csrf_token %}
+         {{ form }}
+		 <input type="submit" value="Update">
+	</form>
+	<br><br><br>	
+{% endblock %}
