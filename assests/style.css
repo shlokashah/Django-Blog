@@ -180,8 +180,8 @@ a.highlight{
     margin: 10px 0;
 }
 
-.Update-Article-Blink{
-    animation:blinkingText 2s linear 3;
+.Update-Article{
+    /*animation:blinkingText 2s linear 3;*/
     color: #00dba0;
     display: block;
     margin-left: auto;
@@ -189,13 +189,6 @@ a.highlight{
     width: fit-content;
 }
 
-@keyframes blinkingText{
-    0%{     color: #000;    }
-    49%{    color: #00dba0; }
-    50%{    color: #00dba0; }
-    99%{    color: #00dba0;  }
-    100%{   color: #000;    }
-}
 
 .article_detail .articles .Update-a a:link, a:visited {
   background-color: #00dba0;
@@ -217,17 +210,10 @@ a.highlight{
 .article_detail .articles .download-a{
   color: #fff;
   text-align: center;
-  -webkit-animation: glow .5s ease-in-out infinite alternate;
+  /*-webkit-animation: glow .5s ease-in-out infinite alternate;
   -moz-animation: glow .5s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;*/
 }
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #00dba0, 0 0 20px #00dba0 }
-  
-  to {
-    text-shadow: 0 0 10px #df0000, 0 0 20px #ff0000 }
 
 .update{
     background: #00dba0;
